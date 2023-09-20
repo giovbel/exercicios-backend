@@ -5,12 +5,12 @@
  * Versão: 1.0
  ********************************************************************/
 
-const calcularFatorial = function(numero){
-    let valorDigitado = numero;
-    let contador;
-    let resultado = 1;
+const calcularFatorial = function(valorFatorial){
+    let valorDigitado = valorFatorial;
+    let contador = 1;
+    let resultado;
 
-    let status = false
+    let fatorial = valorFatorial
 
     if(valorDigitado == ''){
         console.log('>°< ERRO: É obrigatório todos os campos estarem preenchidos !')
@@ -27,12 +27,14 @@ const calcularFatorial = function(numero){
         valorDigitado = Number(valorDigitado)
         contador = Number(contador)
 
-        for(contador = 2; contador <= valorDigitado; contador++){
-            resultado *= contador;
+        resultado = valorDigitado
+
+        for(;contador < valorDigitado; contador++){
+            resultado = resultado *(valorDigitado - contador)
+            fatorial += `x${valorDigitado - contador}`
         }
 
-        console.log(`O fatorial de ${numero} é ${resultado}`)
-        return status
+        console.log('Fatorial de ' + valorDigitado +' é '+ fatorial + ' = ' + resultado)
     }
     }
     

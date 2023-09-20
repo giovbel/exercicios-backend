@@ -14,8 +14,6 @@ entradaDados.question('Número: ', function(valorDigitado){
 
     console.log(calcularFatorial.calcularFatorial(numero))
 
-    
-
     console.log('')
       entradaDados.close();
 })
