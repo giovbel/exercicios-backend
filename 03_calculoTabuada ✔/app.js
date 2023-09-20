@@ -37,10 +37,10 @@ entradaDados.question('Valor inicial: ', function(primeiroValor){
 
         console.log('------------------')
 
-        console.log('')
-
        
     console.log(tabuadas.gerarTabuada(tabuadaValor,tabuada2Valor, valorInicial, valorFinal))
+
+    
 
     console.log('')
       entradaDados.close();

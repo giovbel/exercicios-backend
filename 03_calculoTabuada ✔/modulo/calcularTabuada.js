@@ -5,7 +5,7 @@
  * Versão: 1.0
  **************************************************************/
 
-const gerarTabuada = function(valorTabuada1,valorTabuada2, valorInicial, valorFinal){
+const gerarTabuada = function(valorTabuada1,valorTabuada2,valorInicial, valorFinal){
 
    
     let tabuadaInicial = valorTabuada1
@@ -33,24 +33,24 @@ const gerarTabuada = function(valorTabuada1,valorTabuada2, valorInicial, valorFi
         if(contador > contadorFinal)
         {
             contador = valorFinal;
-            contadorFinal = valorInicial;   
+            contadorFinal = valorInicial;
         }
         
+        
 
+        for(; tabuadaInicial <= tabuadaFinal; tabuadaInicial++){
+        console.log('')
+        console.log('Tabuada do ['+tabuadaInicial+']')
+        console.log('')
         for(; contador <= contadorFinal; contador++){
             resultado = tabuadaInicial * contador
             console.log(`${tabuadaInicial} x ${contador} = ${resultado}`)
             status = true
         }
-
-        for(; contador <= contadorFinal; contador++){
-            resultado = tabuadaFinal * contador
-            console.log()
-            console.log(`${tabuadaFinal} x ${contador} = ${resultado}`)
-            status = true
-        }
+        contador = valorInicial
     }
     return status
+}
 }
 
 module.exports = {
