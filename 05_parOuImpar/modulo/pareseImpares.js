@@ -24,6 +24,26 @@ function paresImpares (valorInicial, valorFinal){
         let contadorPar = 0;
         let contadorImpar = 0;
 
-        for(nu')
+        console.log('Lista de números Pares:')
+        for(; numeroInicial <= numeroFinal; numeroInicial++){
+            if(numeroInicial % 2 == 0){
+                console.log(valorInicial)
+                contadorPar++;
+            }
+        }
+        console.log('')
+        console.log('Qtde de números pares encontrados: ' +contadorPar)
+        console.log('')
+
+        for(;numeroInicial <= numeroFinal ; numeroInicial++){
+            if(numeroInicial % 2 != 0){
+                console.log(numeroInicial)
+                contadorImpar++
+            }
+
     }
-}
+}   
+    module.exports = {
+        paresImpares
+    }
+    }

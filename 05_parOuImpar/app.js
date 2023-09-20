@@ -1,4 +1,4 @@
-var paresOuImpares = require('./modulo/pareseImapares.js');
+var paresOuImpares = require('./modulo/pareseImpares.js');
 
 
 var readline = require('readline');
@@ -13,12 +13,14 @@ entradaDados.question('Número Inicial: ', function(numero1){
 
     entradaDados.question('Número Final: ', function(numero2){
         let valor2 = numero2.replace(',','.')
-    })
 
-    console.log(paresOuImpares.parouimpar(valor1, valor2))
+
+    console.log(paresOuImpares.paresImpares(valor1, valor2))
 
     
 
     console.log('')
       entradaDados.close();
+
+})
 })
