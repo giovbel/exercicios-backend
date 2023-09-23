@@ -43,7 +43,7 @@ entradaDados.question('Valor inicial: ', function(primeiroValor){
     
 
     console.log('')
-      entradaDados.close();
+    entradaDados.close();
 })
 })
 })

@@ -5,49 +5,107 @@
  * Versão: 1.0
  **************************************************************/
 
-const gerarMedia = function(primeiraNota, segundaNota, terceiraNota, quartaNota){
-    let nota1 = primeiraNota
-    let nota2 = segundaNota
-    let nota3 = terceiraNota
-    let nota4 = quartaNota
+const calcularMedia = function (primeiraNota, segundaNota, terceiraNota, quartaNota){
 
-    let media
-    let status
-
-    if(nota1 > 100 || nota1 < 0 || nota2 > 100 || nota2 > 0 || nota3 > 100 || nota3 < 0 || nota4 > 100 || nota4 < 0){
-        console.log('')
-        console.log('>< ERRO: O valor inserido não é válido')
-    }if(nota1 == '' || nota2 == '' || nota3 == '' || nota4 == ''){
-        console.log('')
-        console.log('>< ERRO: Os campos devem estar preenchidos')
-    }if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
-        console.log('')
-        console.log('>< ERRO: Não é possível calcular as notas com caractéres')
+    let nota1 = Number(primeiraNota.replace(',', '.'))
+    let nota2 = Number(segundaNota.replace(',', '.'))
+    let nota3 = Number(terceiraNota.replace(',', '.'))
+    let nota4 = Number(quartaNota.replace(',', '.'))
+    let mediaRelatorio
+    
+    if(nota1 == '' || nota2 == '' || nota3 == '' ||nota4 == ''){
+        console.log('>°< ERRO: Todas as notas devem ser preenchidas')
+    }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
+        console.log('>°< ERRO: Todas as notas devem ser preenchidas com números')
+    }else if(nota1 > 100  || nota1 < 0 || nota2 > 100 || nota2 < 0 || nota3 > 100 || nota3 < 0 ||nota4 > 100  || nota4 < 0){
+        console.log('>°< ERRO: As notas devem estar entre 0 e 100') 
     }else{
-
-        nota1 = Number(nota1)
-        nota2 = Number(nota2)
-        nota3 = Number(nota3)
-        nota4 = Number(nota4)
 
         media = (nota1 + nota2 + nota3 + nota4) / 4
 
-        if(status >= 70){
-            status = 'APROVADO'
-        }else if(status < 50){
-            status = 'REPROVADO'
-        }else if(status >= 50 && status <= 69) {
-            status = 'EXAME'
-        } 
+    return mediaRelatorio;
+    
+}
+}
 
-        if (status == 'EXAME'){
-            let nota5
+const mostrarStatus = function(media){
 
-            media = (nota1 + nota2 + nota3 + nota4 + nota5) / 5
-        } if(nota5 >= 60 && media >= 60){
-            status = 'APROVADO'
-        }
+    let media1 = mediaFinal
+    let status
 
-        console.log()
+    if(media1 > 69){
+        status = 'Aprovado'
+    }else if(media > 49){
+        situacao = 'Em exame'
+    }else{
+        situacao = 'Reprovado'
     }
+    return status
+}
+
+const statusFinal = function(mediaNota5){
+
+    let mediaExame = mediaNota5
+    let situacaoFinal
+
+    if(mediaExame >= 60){
+        statusFinal = 'Aprovado'
+    }else{
+        statusFinal = 'Reprovado'
+    }
+    console.log(`Média com o exame: ${media}  (${statusFinal})`)
+}
+
+const exameCalculo = function(mediaRelatorio, notaExame){
+
+    let media = Number(mediaRelatorio)
+    let exame = Number(notaExame)
+    let resultado
+
+    resultadoFinal = (media + exame) / 2 
+
+    return resultadoFinal
+
+}
+
+
+const relatorioAluno = function (nomeAluno, nomeProfessor, sexoDoAluno,sexoDoProfessor, nomeCurso, nomeDisciplina, mediaRelatorio){
+
+    let aluno = nomeAluno
+    let professor = nomeProfessor
+    let sexoAluno = sexoDoAluno
+    let sexoProfessor = sexoDoProfessor
+    let curso = nomeCurso
+    let disciplina = nomeDisciplina
+    let mediaFinal = mediaRelatorio
+    let status = mostrarStatus(media)
+
+    let alunoFouM
+
+    if(sexoAluno == 'f' ){
+        alunoFouM = 'A aluna'
+    }else{
+        alunoFouM = 'O aluno'
+    }
+
+    let professorFouM
+
+    if(sexoProfessor == 'f')
+        professorFouM = 'A professora'
+    else
+        professorFouM = 'O professor'
+
+    console.log('Relatório do aluno: ')
+    console.log(`${alunoFouM} ${aluno} foi ${status} na disciplina ${disciplina} no curso: ${curso} com ${professorFouM} ${professor}`)
+    console.log(`Média: ${mediaFinal}`)
+
+    entradaDados.close();
+}
+
+module.exports ={
+    calcularMedia,
+    relatorioAluno,
+    mostrarStatus,
+    exameCalculo,
+    statusFinal
 }
