@@ -21,7 +21,7 @@ const calcularMedia = function (primeiraNota, segundaNota, terceiraNota, quartaN
         console.log('>°< ERRO: As notas devem estar entre 0 e 100') 
     }else{
 
-        media = (nota1 + nota2 + nota3 + nota4) / 4
+     mediaRelatorio = (nota1 + nota2 + nota3 + nota4) / 4
 
     return mediaRelatorio;
     
@@ -30,15 +30,15 @@ const calcularMedia = function (primeiraNota, segundaNota, terceiraNota, quartaN
 
 const mostrarStatus = function(media){
 
-    let media1 = mediaFinal
+    let mediaFinal = media
     let status
 
-    if(media1 > 69){
-        status = 'Aprovado'
-    }else if(media > 49){
-        situacao = 'Em exame'
+    if(mediaFinal > 69){
+        status = 'aprovado(a)'
+    }else if(mediaFinal > 49){
+        status = 'em exame'
     }else{
-        situacao = 'Reprovado'
+        status = 'reprovado(a)'
     }
     return status
 }
@@ -46,39 +46,39 @@ const mostrarStatus = function(media){
 const statusFinal = function(mediaNota5){
 
     let mediaExame = mediaNota5
-    let situacaoFinal
+    let statusFinal
 
     if(mediaExame >= 60){
         statusFinal = 'Aprovado'
     }else{
         statusFinal = 'Reprovado'
     }
-    console.log(`Média com o exame: ${media}  (${statusFinal})`)
+    console.log(`Média após o exame: ${mediaExame} ---> ${statusFinal}`)
 }
 
 const exameCalculo = function(mediaRelatorio, notaExame){
 
     let media = Number(mediaRelatorio)
     let exame = Number(notaExame)
-    let resultado
+    let resultadoFinal
 
     resultadoFinal = (media + exame) / 2 
 
-    return resultadoFinal
+    return resultadoFinal;
 
 }
 
 
-const relatorioAluno = function (nomeAluno, nomeProfessor, sexoDoAluno,sexoDoProfessor, nomeCurso, nomeDisciplina, mediaRelatorio){
+const relatorioAluno = function (nomeAluno, nomeProfessor, sexoDoAluno,sexoDoProfessor, nomeCurso, nomeDisciplina, mediaFinal, statusFinal){
 
     let aluno = nomeAluno
     let professor = nomeProfessor
-    let sexoAluno = sexoDoAluno
-    let sexoProfessor = sexoDoProfessor
+    let sexoAluno = sexoDoAluno.toLowerCase()
+    let sexoProfessor = sexoDoProfessor.toLowerCase()
     let curso = nomeCurso
     let disciplina = nomeDisciplina
-    let mediaFinal = mediaRelatorio
-    let status = mostrarStatus(media)
+    let media = mediaFinal
+    let status = statusFinal
 
     let alunoFouM
 
@@ -91,15 +91,13 @@ const relatorioAluno = function (nomeAluno, nomeProfessor, sexoDoAluno,sexoDoPro
     let professorFouM
 
     if(sexoProfessor == 'f')
-        professorFouM = 'A professora'
+        professorFouM = 'a professora'
     else
-        professorFouM = 'O professor'
+        professorFouM = 'o professor'
 
     console.log('Relatório do aluno: ')
-    console.log(`${alunoFouM} ${aluno} foi ${status} na disciplina ${disciplina} no curso: ${curso} com ${professorFouM} ${professor}`)
-    console.log(`Média: ${mediaFinal}`)
-
-    entradaDados.close();
+    console.log(`${alunoFouM} ${aluno} foi ${status} na disciplina ${disciplina} no curso ${curso} com ${professorFouM} ${professor}`)
+    console.log(`Média: ${media}`)
 }
 
 module.exports ={
